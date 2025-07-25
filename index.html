@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav id="topnav">
+	<div id="logoAlerts">
+		<a id="logo" href="#">KCB Internal System</a>
+		<a>example</a>
+	</div>
+
+    <div class="nav-link" tabindex="0">
+      Orders
+      <div class="dropdown">
+        <a href="#">New Orders</a>
+        <a href="#">Processed Orders</a>
+        <a href="#">Archived Orders</a>
+      </div>
+    </div>
+
+    <div class="nav-link" tabindex="0">
+      Inventory
+      <div class="dropdown">
+        <a href="#">Current Stock</a>
+        <a href="#">Add Inventory</a>
+		<a href="#">Update Inventory</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    document.querySelectorAll('#topnav .nav-link').forEach(link => {
+      const dropdown = link.querySelector('.dropdown');
+      if (!dropdown) return;
+
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        link.classList.toggle('open');
+        document.querySelectorAll('#topnav .nav-link.open').forEach(openLink => {
+          if (openLink !== link) openLink.classList.remove('open');
+        });
+      });
+
+      document.addEventListener('click', e => {
+        if (!link.contains(e.target)) {
+          link.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

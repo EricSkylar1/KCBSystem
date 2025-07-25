@@ -1,0 +1,101 @@
+/* ========== Base Styles ========== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ========== Navigation Bar ========== */
+nav#topnav {
+  background: #333;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+#logoAlerts {
+	margin: 25px 10px;
+}
+
+/* Logo */
+nav#topnav #logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ========== Navigation Links ========== */
+.nav-link {
+  position: relative;
+  padding: 1.5rem 1.5rem;
+  font-size: 1.4rem;
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #555;
+  color: #fff;
+}
+
+/* ========== Dropdown Menu ========== */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #444;
+  z-index: 10;
+  flex-direction: column;
+}
+
+.dropdown a {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  color: #eee;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background: #666;
+}
+
+/* Show dropdown when nav-link has class 'open' */
+.nav-link.open .dropdown {
+  display: flex;
+}
+
+/* ========== Responsive (Mobile / Tablet) ========== */
+@media (max-width: 600px) {
+  nav#topnav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav#topnav #logo {
+    flex: none;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding-left: 2rem;
+    border-top: 2px solid #444;
+    font-size: 1.6rem;
+  }
+
+  .dropdown {
+    position: static;
+    min-width: 100%;
+  }
+
+  .dropdown a {
+    padding-left: 3rem;
+    font-size: 1.4rem;
+  }
+}
